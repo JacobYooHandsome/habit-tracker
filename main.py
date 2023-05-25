@@ -1,66 +1,33 @@
-import requests
-import datetime
+import pixela_functions as pf
 from tkinter import *
-import os
-
-pixela_endpoint = "https://pixe.la/v1/users"
-USERNAME = os.environ.get("PIX_USER")
-TOKEN = os.environ.get("PIX_TOKEN")
-
-pixela_parameters = {
-    "token": TOKEN,
-    "username": USERNAME,
-    "agreeTermsOfService": "yes",
-    "notMinor": "yes",
-}
-
-# response = requests.post(url=pixela_endpoint, json=pixela_parameters)
-# print(response.text)
-
-graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
-
-graph_parameters = {
-    "id": "graph1",
-    "name": "Coding",
-    "unit": "commit",
-    "type": "int",
-    "color": "ajisai",
-}
-
-headers = {
-    "X-USER-TOKEN": TOKEN
-}
-
-# response = requests.post(url=graph_endpoint, json=graph_parameters, headers=headers)
-# print(response.text)
-
-post_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1"
-
-today = datetime.datetime.now()
-today_formatted = today.strftime("%Y%m%d")
-
-post_pixel_parameters = {
-    "date": today_formatted,
-    "quantity": "1",
-}
-
-# response = requests.post(url=post_pixel_endpoint, json=post_pixel_parameters, headers=headers)
-# print(response.text)
-
-update_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1/{today_formatted}"
-
-update_pixel_parameters = {
-    "quantity": "2"
-}
-
-# response = requests.put(url=update_pixel_endpoint, json=update_pixel_parameters, headers=headers)
-# print(response.text)
-
-delete_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1/{today_formatted}"
-
-response = requests.delete(url=delete_pixel_endpoint, headers=headers)
-print(response.text)
 
 window = Tk()
-window.title("Habit Tracker")
+window.title("habit-tracker")
+window.config(padx=50, pady=50)
 
+window.mainloop()
+
+# window = Tk()
+# window.title("Korean Flashcard App")
+# window.config(padx=50, pady=50, bg="#B1DDC6")
+
+# canvas = Canvas(width=800, height=526, highlightthickness=0, bg="#B1DDC6", highlightbackground="#B1DDC6")
+# card_front_img = PhotoImage(file="images/card_front.png")
+# card_back_img = PhotoImage(file="images/card_back.png")
+# card = canvas.create_image(400, 263, image=card_front_img)
+# canvas.grid(row=0, column=0, columnspan=2)
+
+# checkmark_img = PhotoImage(file="images/right.png")
+# checkmark = Button(image=checkmark_img, highlightthickness=0, bg="#B1DDC6", highlightbackground="#B1DDC6", command=lambda:[generate_new_word(), remove_word()])
+# checkmark.grid(row=1, column=1)
+
+# language = canvas.create_text(400, 150, text="", font=("Ariel", 40, "italic"), fill="#000000")
+# word = canvas.create_text(400, 263, text="", font=("Ariel", 60, "bold"), fill="#000000")
+
+# incorrect_img = PhotoImage(file="images/wrong.png")
+# incorrect = Button(image=incorrect_img, highlightthickness=0, bg="#B1DDC6", highlightbackground="#B1DDC6", command= generate_new_word)
+# incorrect.grid(row=1, column=0)
+
+# generate_new_word()
+
+# window.mainloop()
